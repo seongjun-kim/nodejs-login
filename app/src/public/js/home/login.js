@@ -11,5 +11,23 @@ function login() {
         id: id.value,
         password: password.value,
     };
-    alert(`id: ${req.id}, pw: ${req.password}`);
+
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(req),
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            if (res.success) {
+                location.href = "/";
+            } else {
+                alert(res.message);
+            }
+        })
+        .catch((err) => {
+            console.error(new Error("[로그인 에러]\n" + err));
+        });
 }
