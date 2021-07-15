@@ -11,6 +11,7 @@ function login() {
         id: id.value,
         password: password.value,
     };
+    let resultMsg = "";
 
     fetch("/login", {
         method: "POST",
@@ -23,11 +24,13 @@ function login() {
         .then((res) => {
             if (res.success) {
                 location.href = "/";
-            } else {
-                alert(res.message);
             }
+            resultMsg = res.message;
         })
         .catch((err) => {
             console.error(new Error("[로그인 에러]\n" + err));
+        })
+        .finally(() => {
+            alert(resultMsg);
         });
 }
