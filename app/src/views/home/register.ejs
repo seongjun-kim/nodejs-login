@@ -6,22 +6,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home/login.css">
-    <!-- defer가 없으면 로그인 페이지 내 동작들이 정상 수행되지 않는다. -->
-    <!-- 아래 defer 속성을 넣음으로써 백그라운드 다운로드 완료 이후 페이지 구성이 끝날 때 까지 스크립트 실행이 지연됨 -->
-    <script src="/js/home/login.js" defer></script>
+    <link rel="stylesheet" href="/css/home/register.css">
+    <script src="/js/home/register.js" defer></script>
     <title>Document</title>
 </head>
-<body><div class="login-page">
+<body><div class="register-page">
     <div class="form">
-      <form class="login-form">
+      <form class="register-form">
         <input id='id' type="text" placeholder="ID"/>
+        <input id='name' type="text" placeholder="Name"/>
         <input id='password' type="password" placeholder="Password"/>
+        <input id='confirm-password' type="password" placeholder="Confirm Password"/>
         <!-- form 태그 안의 button은 'summit' 동작을 기본적으로 수행하면서 창이 새로고침이 된다 -->
         <!-- <button>login</button> -->
         <!-- p태그로 바꾸고, id를 button으로 부여함으로써 동작 수행 이후에 새로고침 되는 현상을 제거 -->
-        <p id='button'>login</p>
-        <p class="message">Not registered? <a href="/register">Create an account</a></p>
+        <p id='button'>sign up</p>
+        <p class="message">Already registered? <a href="/login">login</a></p>
       </form>
     </div>
   </div>
