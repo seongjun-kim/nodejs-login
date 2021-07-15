@@ -7,18 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home/login.css">
+    <!-- defer가 없으면 로그인 페이지 내 동작들이 정상 수행되지 않는다. -->
+    <!-- 아래 defer 속성을 넣음으로써 백그라운드 다운로드 완료 이후 페이지 구성이 끝날 때 까지 스크립트 실행이 지연됨 -->
     <script src="/js/home/login.js" defer></script>
     <title>Document</title>
 </head>
 <body><div class="login-page">
     <div class="form">
-      <!-- <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form> -->
       <form class="login-form">
         <input id='id' type="text" placeholder="ID"/>
         <input id='password' type="password" placeholder="Password"/>
