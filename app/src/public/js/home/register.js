@@ -32,7 +32,7 @@ function register() {
             resultMsg = res.message;
         })
         .catch((err) => {
-            console.error(new Error("[회원가입 에러]\n" + err));
+            resultMsg = "[회원가입 에러]\n" + err;
         })
         .finally(() => {
             alert(resultMsg);

@@ -28,7 +28,7 @@ function login() {
             resultMsg = res.message;
         })
         .catch((err) => {
-            console.error(new Error("[로그인 에러]\n" + err));
+            resultMsg = "[로그인 에러]\n" + err;
         })
         .finally(() => {
             alert(resultMsg);
