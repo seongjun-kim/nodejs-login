@@ -48,14 +48,14 @@ yarn start
 
 # Swagger
 
- 서버 가동 이후, API 명세는 `{server_url}/docs`를 통해 확인할 수 있습니다.
+서버 가동 이후, API 명세는 `{server_url}/docs`를 통해 확인할 수 있습니다.
 
 <br><br>
 
 
 # Log
 
- Morgan과 rotating-file-stream을 활용해 **3일** 동안의 로그를 기록하도록 설정되어 있습니다.
- 저장경로: `{PROJECT_DIR}/app/log/access.log`
+Morgan과 rotating-file-stream을 활용해 **3일 동안**의 로그를 기록하도록 설정되어 있습니다.<br>
+**저장경로**: `{PROJECT_DIR}/app/log/access.log`
 
 <br><br>
