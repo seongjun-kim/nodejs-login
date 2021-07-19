@@ -16,7 +16,10 @@
     "mysql": "^2.18.1",
     "rotating-file-stream": "^2.1.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  },
   "scripts": {
     "start": "nodemon ./bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
