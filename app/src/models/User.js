@@ -1,7 +1,7 @@
 "use strict";
 
+const bcrypt = require("bcrypt");
 const UserStorage = require("./UserStorage");
-
 class User {
   constructor(body) {
     this.body = body;
@@ -16,8 +16,8 @@ class User {
         return { success: false, message: "비밀번호를 확인해주세요." };
 
       const { id, name, password } = await UserStorage.getUserInfo(client.id);
-
-      if (id === client.id && password === client.password) {
+      const validPassword = await bcrypt.compare(client.password, password);
+      if (id === client.id && validPassword) {
         return { success: true, message: `${name}님 환영합니다!` };
       }
       return { success: false, message: "비밀번호가 틀렸습니다." };
@@ -40,6 +40,8 @@ class User {
       return { success: false, message: "비밀번호가 일치하지 않습니다." };
 
     try {
+      const salt = await bcrypt.genSalt(10);
+      client.password = await bcrypt.hash(client.password, salt);
       const { success } = await UserStorage.saveUserInfo(client);
       if (success) return { success: true, message: "가입을 축하합니다!" };
 
