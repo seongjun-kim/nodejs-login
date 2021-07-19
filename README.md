@@ -56,5 +56,6 @@ yarn start
 # Log
 
  Morgan과 rotating-file-stream을 활용해 **3일** 동안의 로그를 기록하도록 설정되어 있습니다.
+ 저장경로: `{PROJECT_DIR}/app/log/access.log`
 
 <br><br>
