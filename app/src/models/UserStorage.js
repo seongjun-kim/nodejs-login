@@ -15,7 +15,7 @@ class UserStorage {
   static async saveUserInfo(userInfo) {
     const { id, name, password } = userInfo;
     return new Promise((resolve, reject) => {
-      const query = "INSERT INTO sdsddusers(id,name,password) VALUES(?, ?, ?);";
+      const query = "INSERT INTO users(id,name,password) VALUES(?, ?, ?);";
       db.query(query, [id, name, password], (err) => {
         if (err) reject(err);
         resolve({ success: true });
