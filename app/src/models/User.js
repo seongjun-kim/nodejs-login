@@ -2,6 +2,8 @@
 
 const bcrypt = require("bcrypt");
 const UserStorage = require("./UserStorage");
+const jwt = require("jsonwebtoken");
+
 class User {
   constructor(body) {
     this.body = body;
@@ -18,7 +20,23 @@ class User {
       const { id, name, password } = await UserStorage.getUserInfo(client.id);
       const validPassword = await bcrypt.compare(client.password, password);
       if (id === client.id && validPassword) {
-        return { success: true, message: `${name}님 환영합니다!` };
+        // jwt.sign() 메소드: 토큰 발급
+        const token = jwt.sign(
+          {
+            id,
+            password,
+          },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "30m",
+            issuer: process.env.APP_NAME,
+          }
+        );
+        return {
+          success: true,
+          token,
+          message: `${name}님 환영합니다!`,
+        };
       }
       return { success: false, message: "비밀번호가 틀렸습니다." };
     } catch (error) {
